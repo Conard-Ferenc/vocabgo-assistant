@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         词达人助手
 // @namespace    https://github.com/Conard-Ferenc/vocabgo-assistant
-// @version      0.0.2
+// @version      0.0.3
 // @description  词达人自动挂机
 // @author       Conard
 // @match        https://app.vocabgo.com/*
