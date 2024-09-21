@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         词达人助手
 // @namespace    https://github.com/Conard-Ferenc/vocabgo-assistant
-// @version      0.0.1
+// @version      0.0.2
 // @description  词达人自动挂机
 // @author       Conard
 // @match        https://app.vocabgo.com/*
@@ -39,7 +39,12 @@
     if (pluginMap[nowPlugin]) return pluginMap[nowPlugin]()
     nowPlugin = null
   })
-  const getTempMap = () => new Map(JSON.parse(localStorage.getItem('fullMap')))
+  window.获取词库 = localStorage.getItem('fullMap')
+  window.导入词库 = (data) => {
+    if (typeof data === 'object') data = JSON.stringify(data)
+    localStorage.setItem('fullMap', data)
+  }
+  const getTempMap = () => new Map(JSON.parse(获取词库))
   const fullMap = getTempMap()
   const createMap = () => {
     const wordPage = app.$el.querySelector('.word').__vue__
