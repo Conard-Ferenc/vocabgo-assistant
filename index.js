@@ -90,7 +90,7 @@
     //   // console.log(topicExam.$data[i], typeof topicExam.$data[i])
     // })
     topicExam.$watch(
-      () => topicExam.$data.topicData?.topic_code,
+      () => topicExam.$data.topicData?.stem.content,
       (val) => {
         if (!val) return
         console.log(JSON.stringify(topicExam.topicData))
@@ -132,9 +132,12 @@
     // nextTopic()
   }
   const selectWord = (word, options) => {
+    const target = word.split(/ |，|；/).pop()
+    console.log(target);
     const index = options.findIndex(({ content }) => {
+      console.log(content);
       const translate = fullMap.get(content.trim())
-      return translate && translate.includes(word.split(/ |，|；/).pop())
+      return translate && translate.includes(target)
     })
     getClickDom(index)
     // nextTopic()
